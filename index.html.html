@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Manju K. G. | Associate Professor of Business Administration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0a2540;
+            --secondary: #1a3a5c;
+            --accent: #c9a961;
+            --accent-light: #e8d5a0;
+            --bg-cream: #faf8f3;
+            --bg-white: #ffffff;
+            --text-dark: #1a202c;
+            --text-medium: #4a5568;
+            --text-light: #718096;
+            --border: #e2e8f0;
+            --shadow-sm: 0 2px 8px rgba(10, 37, 64, 0.08);
+            --shadow-md: 0 10px 30px rgba(10, 37, 64, 0.12);
+            --shadow-lg: 0 20px 50px rgba(10, 37, 64, 0.18);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.7;
+            color: var(--text-dark);
+            background: var(--bg-cream);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; font-weight: 700; }
+
+        /* Navigation */
+        nav {
+            background: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s;
+            box-shadow: var(--shadow-sm);
+        }
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        .nav-brand span { color: var(--accent); }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover { color: var(--accent); }
+        .nav-links a:hover::after { width: 100%; }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.92), rgba(26, 58, 92, 0.88)),
+                        url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1920&q=80') center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+        .hero-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+        .hero-text .badge {
+            display: inline-block;
+            background: rgba(201, 169, 97, 0.2);
+            color: var(--accent-light);
+            padding: 0.5rem 1.25rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(201, 169, 97, 0.4);
+        }
+        .hero-text h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -1px;
+        }
+        .hero-text h1 span {
+            color: var(--accent);
+            display: block;
+        }
+        .hero-text .title {
+            font-size: 1.3rem;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            font-style: italic;
+        }
+        .hero-text p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: var(--accent);
+            color: var(--primary);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary);
+        }
+
+        /* Profile Image */
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+        }
+        .profile-frame {
+            position: relative;
+            width: 380px;
+            height: 460px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            border: 5px solid rgba(201, 169, 97, 0.3);
+        }
+        .profile-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+        .profile-frame::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 3px solid var(--accent);
+            border-radius: 20px;
+            z-index: -1;
+        }
+        .profile-badge {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+            font-weight: 700;
+        }
+        .profile-badge .number {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            line-height: 1;
+        }
+        .profile-badge .label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: var(--primary);
+            padding: 4rem 2rem;
+            color: white;
+        }
+        .stats-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        .stat-item .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+        .stat-item .stat-label {
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            opacity: 0.85;
+        }
+
+        /* Sections */
+        section.content-section {
+            padding: 6rem 2rem;
+        }
+        .section-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        .section-header .eyebrow {
+            color: var(--accent);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        .section-header p {
+            color: var(--text-medium);
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.05rem;
+        }
+        .divider {
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 1.5rem auto;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .about-image {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 500px;
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .about-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(10, 37, 64, 0.3), transparent);
+        }
+        .about-content h3 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+        .about-content p {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        .interest-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: var(--bg-cream);
+            border-radius: 8px;
+            border-left: 3px solid var(--accent);
+            font-weight: 500;
+            color: var(--primary);
+        }
+        .interest-item::before {
+            content: '◆';
+            color: var(--accent);
+        }
+
+        /* Experience Timeline with Images */
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--accent);
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            width: 50%;
+            padding: 0 2.5rem;
+        }
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border: 4px solid var(--bg-cream);
+            border-radius: 50%;
+            z-index: 1;
+        }
+        .timeline-item:nth-child(odd)::before { right: -9px; }
+        .timeline-item:nth-child(even)::before { left: -9px; }
+
+        .timeline-content {
+            background: white;
+            padding: 0;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+            overflow: hidden;
+        }
+        .timeline-content:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+        .timeline-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--accent);
+        }
+        .timeline-body {
+            padding: 1.5rem;
+        }
+        .timeline-date {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--accent);
+            padding: 0.3rem 0.9rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+        .timeline-content h4 {
+            color: var(--primary);
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content .institution {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+        .timeline-content p {
+            color: var(--text-medium);
+            font-size: 0.95rem;
+        }
+
+        /* Education Grid */
+        .edu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        .edu-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        .edu-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-md);
+        }
+        .edu-card::before {
+            content: '🎓';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            font-size: 8rem;
+            opacity: 0.05;
+        }
+        .edu-card .degree {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        .edu-card .institution {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .edu-card .status {
+            display: inline-block;
+            background: rgba(201, 169, 97, 0.15);
+            color: var(--secondary);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+        }
+
+        /* Publications */
+        .pub-list {
+            display: grid;
+            gap: 1.25rem;
+        }
+        .pub-item {
+            background: white;
+            padding: 1.75rem 2rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow-sm);
+            border-left: 4px solid var(--accent);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+        .pub-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateX(5px);
+        }
+        .pub-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            font-weight: 700;
+            min-width: 50px;
+        }
+        .pub-details h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .pub-details .pub-meta {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+        .pub-tag {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--accent-light);
+            padding: 0.2rem 0.7rem;
+            border-radius: 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-top: 0.5rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* FDPs and Seminars */
+        .two-col {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        .col-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+        }
+        .col-card h3 {
+            color: var(--primary);
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        .col-card h3::before {
+            content: '';
+            width: 40px;
+            height: 3px;
+            background: var(--accent);
+        }
+        .fdp-list {
+            list-style: none;
+            max-height: 600px;
+            overflow-y: auto;
+            padding-right: 0.5rem;
+        }
+        .fdp-list::-webkit-scrollbar { width: 6px; }
+        .fdp-list::-webkit-scrollbar-track { background: var(--bg-cream); }
+        .fdp-list::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+        .fdp-list li {
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.92rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+        .fdp-list li:last-child { border-bottom: none; }
+        .fdp-list li strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 0.25rem;
+            font-size: 0.95rem;
+        }
+        .fdp-list li .year {
+            display: inline-block;
+            background: rgba(201, 169, 97, 0.15);
+            color: var(--secondary);
+            padding: 0.15rem 0.6rem;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        /* Responsibilities */
+        .resp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        .resp-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            display: flex;
+            gap: 1.25rem;
+            align-items: flex-start;
+            transition: all 0.3s;
+        }
+        .resp-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .resp-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .resp-card h4 {
+            color: var(--primary);
+            font-size: 1.1rem;
+            margin-bottom: 0.35rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+        }
+        .resp-card p {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+        }
+
+        /* References */
+        .ref-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        .ref-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            border-top: 4px solid var(--accent);
+            transition: all 0.3s;
+        }
+        .ref-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+        .ref-avatar {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .ref-card h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        .ref-card .designation {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .ref-card .org {
+            color: var(--text-medium);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .ref-card .contact {
+            display: inline-block;
+            background: var(--bg-cream);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(10, 37, 64, 0.95), rgba(26, 58, 92, 0.92)),
+                        url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80') center/cover fixed;
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+        .contact-section h2 {
+            color: white;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+        }
+        .contact-section .subtitle {
+            color: var(--accent-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+            font-style: italic;
+        }
+        .contact-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .contact-item {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(201, 169, 97, 0.3);
+            transition: all 0.3s;
+        }
+        .contact-item:hover {
+            background: rgba(201, 169, 97, 0.15);
+            transform: translateY(-5px);
+        }
+        .contact-item .icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact-item h4 {
+            color: var(--accent);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.75rem;
+            font-family: 'Inter', sans-serif;
+        }
+        .contact-item p {
+            color: white;
+            font-size: 0.95rem;
+            word-break: break-word;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary);
+            color: white;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            border-top: 3px solid var(--accent);
+        }
+        footer p {
+            opacity: 0.8;
+            font-size: 0.9rem;
+        }
+        footer .signature {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-container { grid-template-columns: 1fr; text-align: center; }
+            .hero-text h1 { font-size: 2.8rem; }
+            .hero-cta { justify-content: center; }
+            .hero-image { margin-top: 2rem; }
+            .profile-frame { width: 280px; height: 340px; }
+            .about-grid { grid-template-columns: 1fr; }
+            .two-col { grid-template-columns: 1fr; }
+            .timeline::before { left: 20px; }
+            .timeline-item { width: 100%; left: 0 !important; text-align: left !important; padding-left: 3rem; padding-right: 0; }
+            .timeline-item::before { left: 11px !important; right: auto !important; }
+            .nav-links { display: none; }
+            .section-header h2 { font-size: 2rem; }
+            .interests-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-brand">Dr. Manju <span>K. G.</span></div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#development">Development</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-text">
+                <span class="badge">Academician • Researcher • Mentor</span>
+                <h1>Dr. Manju K. G.<span>Associate Professor</span></h1>
+                <p class="title">Department of Business Administration</p>
+                <p>
+                    A distinguished academic professional with <strong>25 years of experience</strong> in higher education, specializing in Business Analytics, Quantitative Techniques, Research Methodology, and Human Resource Management. Currently serving at Mar Ephraem College of Engineering and Technology, affiliated to Anna University.
+                </p>
+                <div class="hero-cta">
+                    <a href="#publications" class="btn btn-primary">View Publications →</a>
+                    <a href="#contact" class="btn btn-outline">Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-frame">
+                    <!-- YOUR PHOTO IS NOW LINKED HERE -->
+                    <img src="profile.jpg" alt="Dr. Manju K. G.">
+                </div>
+                <div class="profile-badge">
+                    <div class="number">25+</div>
+                    <div class="label">Years of Excellence</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-item">
+                <div class="stat-number">25+</div>
+                <div class="stat-label">Years Teaching</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">8</div>
+                <div class="stat-label">Publications</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4</div>
+                <div class="stat-label">Degrees Earned</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">15+</div>
+                <div class="stat-label">FDPs Attended</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="content-section" id="about">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="eyebrow">Professional Profile</span>
+                <h2>About Dr. Manju K. G.</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-grid fade-in">
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=800&q=80" alt="Academic Environment">
+                </div>
+                <div class="about-content">
+                    <h3>A Journey of Academic Excellence</h3>
+                    <p>
+                        With a rich academic journey spanning over two and a half decades, Dr. Manju K. G. has made significant contributions to higher education through teaching, research, curriculum development, and institutional leadership. Her expertise bridges the domains of Business Administration, Computer Science, and Management.
+                    </p>
+                    <p>
+                        Having served in prestigious leadership roles including <strong>Vice Principal</strong> and <strong>Associate Professor</strong> across institutions affiliated to Anna University, Kerala University, and CUSAT, she brings a wealth of experience in academic administration, examination duties, and institutional coordination.
+                    </p>
+                    <h3 style="margin-top: 2rem;">Areas of Academic Interest</h3>
+                    <div class="interests-grid">
+                        <div class="interest-item">Business Analytics</div>
+                        <div class="interest-item">Quantitative Techniques</div>
+                        <div class="interest-item">Research Methodology</div>
+                        <div class="interest-item">Human Resource Management</div>
+                        <div class="interest-item">Information Technology</div>
+                        <div class="interest-item">Business Statistics</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section with College Images -->
+    <section class="content-section" id="experience" style="background: var(--bg-white);">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="eyebrow">Career Journey</span>
+                <h2>Professional Experience</h2>
+                <div class="divider"></div>
+                <p>A distinguished career spanning leading institutions across India</p>
+            </div>
+            <div class="timeline fade-in">
+                
+                <!-- Mar Ephraem College -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1562774053-701939374585?w=600&q=80" alt="Mar Ephraem College" class="timeline-image">
+                        <div class="timeline-body">
+                            <span class="timeline-date">Sep 2023 – Present</span>
+                            <h4>Associate Professor / MBA</h4>
+                            <div class="institution">Mar Ephraem College of Engineering and Technology</div>
+                            <p>Affiliated to Anna University</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cooperative College -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&q=80" alt="Cooperative College" class="timeline-image">
+                        <div class="timeline-body">
+                            <span class="timeline-date">Apr 2023 – Sep 2023</span>
+                            <h4>Assistant Professor / MBA</h4>
+                            <div class="institution">Cooperative College of Management and Technology</div>
+                            <p>Kerala University</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAMS MBA College (Vice Principal) -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80" alt="CAMS MBA College" class="timeline-image">
+                        <div class="timeline-body">
+                            <span class="timeline-date">Mar 2015 – May 2022</span>
+                            <h4>Vice Principal & Associate Professor / MBA</h4>
+                            <div class="institution">CAMS MBA College</div>
+                            <p>Affiliated to CUSAT</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAMS MBA College (Associate Professor) -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&q=80" alt="CAMS MBA College" class="timeline-image">
+                        <div class="timeline-body">
+                            <span class="timeline-date">Aug 2011 – Mar 2015</span>
+                            <h4>Associate Professor / MBA</h4>
+                            <div class="institution">CAMS MBA College</div>
+                            <p>Affiliated to CUSAT</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CAMS MBA College (Assistant Professor) -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?w=600&q=80" alt="CAMS MBA College" class="timeline-image">
+                        <div class="timeline-body">
+                            <span class="timeline-date">Nov 2004 – Aug 2011</span>
+                            <h4>Assistant Professor / MBA</h4>
+                            <div class="institution">CAMS MBA College</div>
+                            <p>Affiliated to CUSAT</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Christian College -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80" alt="Christian College" class="timeline-image">
+                        <div class="timeline-body">
+                            <span class="timeline-date">2000 – 2004</span>
+                            <h4>Guest Lecturer</h4>
+                            <div class="institution">Christian College, Kattakada</div>
+                            <p>Trivandrum</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Government College -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <img src="https://images.unsplash.com/photo-1568667256549-094345857637?w=600&q=80" alt="Government College" class="timeline-image">
+                        <div class="timeline-body">
+                            <span class="timeline-date">Feb 2000 – Jul 2000</span>
+                            <h4>Guest Lecturer / BSc Computer Science</h4>
+                            <div class="institution">Government College, Kariavattom</div>
+                            <p>Trivandrum</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="content-section" id="education">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="eyebrow">Academic Qualifications</span>
+                <h2>Education & Credentials</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="edu-grid fade-in">
+                <div class="edu-card">
+                    <div class="degree">PhD in Business Administration</div>
+                    <div class="institution">Annamalai University</div>
+                    <span class="status">Research Scholar</span>
+                </div>
+                <div class="edu-card">
+                    <div class="degree">MBA</div>
+                    <div class="institution">Annamalai University</div>
+                    <span class="status">First Class</span>
+                </div>
+                <div class="edu-card">
+                    <div class="degree">MPhil Computer Science</div>
+                    <div class="institution">Vinayaka Missions University, Salem</div>
+                    <span class="status">First Class</span>
+                </div>
+                <div class="edu-card">
+                    <div class="degree">MCA</div>
+                    <div class="institution">Bharathiar University, Coimbatore</div>
+                    <span class="status">First Class</span>
+                </div>
+                <div class="edu-card">
+                    <div class="degree">BSc Mathematics</div>
+                    <div class="institution">University of Kerala</div>
+                    <span class="status">First Class</span>
+                </div>
+            </div>
+
+            <div style="margin-top: 4rem;">
+                <div class="section-header fade-in">
+                    <span class="eyebrow">Continuous Learning</span>
+                    <h2>SWAYAM – NPTEL Certifications</h2>
+                    <div class="divider"></div>
+                </div>
+                <div class="edu-grid fade-in">
+                    <div class="edu-card">
+                        <div class="degree">E-Business</div>
+                        <div class="institution">IIT Madras</div>
+                        <span class="status">Score: 60% • 2025</span>
+                    </div>
+                    <div class="edu-card">
+                        <div class="degree">Intro to Managerial Economics</div>
+                        <div class="institution">IIM Bangalore</div>
+                        <span class="status">Score: 62.8% • 2024</span>
+                    </div>
+                    <div class="edu-card">
+                        <div class="degree">HR Analytics Using Excel</div>
+                        <div class="institution">Dayanand Sagar Institutions</div>
+                        <span class="status">Score: 69.3% • 2024</span>
+                    </div>
+                    <div class="edu-card">
+                        <div class="degree">Business Statistics</div>
+                        <div class="institution">IIT Roorkee</div>
+                        <span class="status">Score: 61% • 2019</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section class="content-section" id="publications" style="background: var(--bg-white);">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="eyebrow">Research Contributions</span>
+                <h2>Selected Publications</h2>
+                <div class="divider"></div>
+                <p>Peer-reviewed research articles and book chapters in reputed journals</p>
+            </div>
+            <div class="pub-list fade-in">
+                <div class="pub-item">
+                    <div class="pub-number">01</div>
+                    <div class="pub-details">
+                        <h4>"ICT Alleviates Poverty Focusing on Healthcare, Agriculture and Entrepreneurship"</h4>
+                        <div class="pub-meta">Book chapter in Smart Technologies for Sustainable Development Goals, Taylor & Francis Group, ISBN 9781003519010</div>
+                        <span class="pub-tag">2024 • Book Chapter</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-number">02</div>
+                    <div class="pub-details">
+                        <h4>"A Study on the Relationship between Green Energy Initiatives and Quality of Life of Employees of Selected Business Schools in Kerala"</h4>
+                        <div class="pub-meta">KICMA Reach, Vol. 9, No. 1, ISSN 2395-0293</div>
+                        <span class="pub-tag">2023 • Journal Article</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-number">03</div>
+                    <div class="pub-details">
+                        <h4>"Green Campus as a Model for Achieving Quality of Life"</h4>
+                        <div class="pub-meta">Book chapter in Business Management and Allied Disciplines, ISBN 978-93-92816-29-1</div>
+                        <span class="pub-tag">2022 • Book Chapter</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-number">04</div>
+                    <div class="pub-details">
+                        <h4>"Student Perception about Green Initiatives in Business Schools"</h4>
+                        <div class="pub-meta">International Journal of Business Management and IT (IJBMIT), Special Issue I, pp. 207–212, ISSN 2321-8703</div>
+                        <span class="pub-tag">2020 • Journal Article</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-number">05</div>
+                    <div class="pub-details">
+                        <h4>"Green Campus Initiatives and its Impact on Quality of Life of Stakeholders in B Schools of Kerala"</h4>
+                        <div class="pub-meta">Our Heritage, UGC CARE Journal, Special Issue 4, Vol. 63</div>
+                        <span class="pub-tag">2019 • UGC CARE</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-number">06</div>
+                    <div class="pub-details">
+                        <h4>"Measuring the Effectiveness of Green HR Practices to Improve the Efficiency of Faculty Members in Higher Educational Institutions"</h4>
+                        <div class="pub-meta">Think India – Quarterly Journal, Vol. 22, Issue 4</div>
+                        <span class="pub-tag">2019 • Journal Article</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-number">07</div>
+                    <div class="pub-details">
+                        <h4>"Change Management Strategy in ERP Implementation"</h4>
+                        <div class="pub-meta">CAMS Journal of Business Studies and Research, Vol. 2, Issue 3, ISSN 0975-7953</div>
+                        <span class="pub-tag">2011 • Journal Article</span>
+                    </div>
+                </div>
+                <div class="pub-item">
+                    <div class="pub-number">08</div>
+                    <div class="pub-details">
+                        <h4>"Need for E-Governance in the Cooperative Enterprises"</h4>
+                        <div class="pub-meta">CAMS Journal of Business Studies and Research, Vol. 1, Issue 2, ISSN 0975-7953</div>
+                        <span class="pub-tag">2010 • Journal Article</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FDPs and Seminars -->
+    <section class="content-section" id="development">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="eyebrow">Professional Development</span>
+                <h2>FDPs, Webinars & Seminars</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="two-col fade-in">
+                <div class="col-card">
+                    <h3>Faculty Development Programmes</h3>
+                    <ul class="fdp-list">
+                        <li><span class="year">2025</span><strong>Research and Write with AI Assistance</strong>Institute of Public Enterprise, Hyderabad</li>
+                        <li><span class="year">2025</span><strong>Green Energy Solutions: Building a Sustainable, Carbon-Neutral World</strong>AICTE-ATAL FDP, College of Engineering Muttathara</li>
+                        <li><span class="year">2024</span><strong>Smart Manufacturing and Digital Transformation in Industry 4.0</strong>AICTE-ATAL FDP, Pandit Deendayal Energy University</li>
+                        <li><span class="year">2023</span><strong>Outcome Based Education and Essential AI Tools for Teachers</strong>National Level FDP</li>
+                        <li><span class="year">2022</span><strong>Universal Human Rights I & II</strong>AICTE Courses</li>
+                        <li><span class="year">2021</span><strong>ARPIT Online Refresher Course in Management</strong>Grade C</li>
+                        <li><span class="year">2021</span><strong>AICTE Examination Reforms Workshop</strong>3-day online workshop</li>
+                        <li><span class="year">2020</span><strong>Online Education in Higher Education Institutions</strong>Kerala State Higher Education Council</li>
+                        <li><span class="year">2020</span><strong>Business Data Analysis Using Excel</strong>Bharathidasan College of Arts and Science, Erode</li>
+                        <li><span class="year">2020</span><strong>Application of Tools and Techniques in Research Methodology</strong>Noural Islam University</li>
+                        <li><span class="year">2019</span><strong>Business Research and Data Analysis using SPSS and SEM using AMOS</strong>AICTE-sponsored, Rajagiri College of Social Science, Kochi</li>
+                        <li><span class="year">2018</span><strong>Being a Mentor – Building Right Attitude</strong>CAMS, TVM</li>
+                        <li><span class="year">2016</span><strong>Quantitative Research Techniques using IBM SPSS</strong>Christ University, Bangalore</li>
+                        <li><span class="year">2012</span><strong>Project Guidance and Case Method of Teaching</strong>CAMS, TVM</li>
+                        <li><span class="year">2010</span><strong>Statistical Packages and Management Games</strong>IMK, University of Kerala</li>
+                        <li><span class="year">2009</span><strong>New Dimensions in Research</strong>DCSMAT, Kinfra Park, TVM</li>
+                        <li><span class="year">2006</span><strong>UGC-sponsored Refresher Course in Computer Science</strong>University of Kerala Academic Staff College</li>
+                    </ul>
+                </div>
+                <div class="col-card">
+                    <h3>Seminars & Conferences</h3>
+                    <ul class="fdp-list">
+                        <li><span class="year">Webinar</span><strong>BioEnergy: Transition and Technology</strong>TEQIP III, Dr. Ambedkar NIT, Jalandhar • 2020</li>
+                        <li><span class="year">Webinar</span><strong>Hypothesis in Research: Panic to Pivot</strong>Christ Nagar College, Maranalloor • 2020</li>
+                        <li><span class="year">Webinar</span><strong>Research Methodology for Social Science Research</strong>IQAC, MES Asmabi College, University of Calicut • 2020</li>
+                        <li><span class="year">2020</span><strong>Entrepreneurship – Owning Your Career</strong>CAMS, TVM</li>
+                        <li><span class="year">2019</span><strong>Knowledge to Wealth Creation through ECG System</strong>Annamalai University, Chidambaram</li>
+                        <li><span class="year">2019</span><strong>Innovative Research Methods & Techniques on Management</strong>MRF, Annamalai University</li>
+                        <li><span class="year">2019</span><strong>Cross Border Trade and Investments Among Emerging Economies</strong>Dept. of Commerce & KSHEC, TVM</li>
+                        <li><span class="year">2019</span><strong>Young India 2020 – Entrepreneur or Intrapreneur</strong>CAMS, TVM</li>
+                        <li><span class="year">2017</span><strong>Fine Tuning Commerce Education in Research</strong>Govt. College for Women, TVM</li>
+                        <li><span class="year">2017</span><strong>De Novo Engines of Economic Growth</strong>Dept. of Economics, University of Kerala</li>
+                        <li><span class="year">2017</span><strong>The Business of Entrepreneurship Branding</strong>CAMS, TVM</li>
+                        <li><span class="year">2016</span><strong>Reinventing India's Business E-Business for 21st Century</strong>CAMS, TVM</li>
+                        <li><span class="year">2016</span><strong>International Conference on HRD</strong>DDU Kaushal Kendra, CUSAT</li>
+                        <li><span class="year">2016</span><strong>Methodology of Research in Social Science</strong>Govt. College for Women</li>
+                        <li><span class="year">2015</span><strong>Make in India – New Horizon of Opportunities</strong>CAMS, TVM</li>
+                        <li><span class="year">2014</span><strong>Western Ghats Conservation and Development of Kerala</strong>University College, TVM</li>
+                        <li><span class="year">2014</span><strong>Budding Entrepreneurs: Challenges and Opportunities</strong>CAMS, TVM</li>
+                        <li><span class="year">2013</span><strong>FDI in Retail Sector in India</strong>University College, TVM</li>
+                        <li><span class="year">2010</span><strong>Management of Paradigm Shift and Challenges</strong>CAMS, TVM</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Responsibilities -->
+    <section class="content-section" style="background: var(--bg-white);">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="eyebrow">Leadership & Service</span>
+                <h2>Academic & Administrative Responsibilities</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="resp-grid fade-in">
+                <div class="resp-card">
+                    <div class="resp-icon">📋</div>
+                    <div>
+                        <h4>NAAC Department File Work</h4>
+                        <p>Mar Ephraem College of Engineering and Technology</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">💼</div>
+                    <div>
+                        <h4>Department Placement Officer</h4>
+                        <p>Mar Ephraem College of Engineering and Technology</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">🏆</div>
+                    <div>
+                        <h4>Coordinator, GWANI'24</h4>
+                        <p>National Level Management Fest</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">✍️</div>
+                    <div>
+                        <h4>Answer Script Evaluator</h4>
+                        <p>MBA examinations, Anna University</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">📝</div>
+                    <div>
+                        <h4>Question Paper Setter & Evaluator</h4>
+                        <p>MBA, Cochin University of Science and Technology (CUSAT)</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">📚</div>
+                    <div>
+                        <h4>Associate Editor</h4>
+                        <p>CAMS Journal of Business Studies and Research</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">🏛️</div>
+                    <div>
+                        <h4>Governing Body Member</h4>
+                        <p>CAMS MBA College</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">🎓</div>
+                    <div>
+                        <h4>Faculty Council Secretary</h4>
+                        <p>CAMS MBA College</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon">🌱</div>
+                    <div>
+                        <h4>Faculty Coordinator</h4>
+                        <p>Jeevanam – Eco-Club and HR Club, CAMS</p>
+                    </div>
+                </div>
+                <div class="resp-card">
+                    <div class="resp-icon"></div>
+                    <div>
+                        <h4>In-charge, Online Approvals</h4>
+                        <p>AICTE, DTE–Govt. of Kerala, CUSAT, MHRD–AISHE</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- References -->
+    <section class="content-section">
+        <div class="section-container">
+            <div class="section-header fade-in">
+                <span class="eyebrow">Professional Network</span>
+                <h2>References</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="ref-grid fade-in">
+                <div class="ref-card">
+                    <div class="ref-avatar">GR</div>
+                    <h4>Dr. Gladston Raj</h4>
+                    <div class="designation">Professor and HOD</div>
+                    <div class="org">Govt. Arts and Science College<br>Karyavattom, Trivandrum</div>
+                    <div class="contact">📞 9447388887</div>
+                </div>
+                <div class="ref-card">
+                    <div class="ref-avatar">SL</div>
+                    <h4>Dr. Shibulal</h4>
+                    <div class="designation">Director</div>
+                    <div class="org">Marian Institute of Management<br>Trivandrum</div>
+                    <div class="contact">📞 8848710083</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="section-container">
+            <h2>Get in Touch</h2>
+            <p class="subtitle">Open to academic collaborations, research partnerships, and professional consultations</p>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="icon">📍</div>
+                    <h4>Address</h4>
+                    <p>Panayarakunnu, Kattachalkuzhi P.O.<br>Balaramapuram, Trivandrum – 695501</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon"></div>
+                    <h4>Phone</h4>
+                    <p>+91 9495155546</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">✉️</div>
+                    <h4>Email</h4>
+                    <p>manj.saj@gmail.com</p>
+                </div>
+                <div class="contact-item">
+                    <div class="icon">🏫</div>
+                    <h4>Institution</h4>
+                    <p>Mar Ephraem College of Engineering and Technology<br>(Anna University)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p class="signature">Dr. Manju K. G.</p>
+        <p>Associate Professor of Business Administration | Academician | Researcher</p>
+        <p style="margin-top: 1rem; opacity: 0.6;">© 2026 Dr. Manju K. G. | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        // Scroll-based fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+        // Navbar shadow on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(10, 37, 64, 0.98)';
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
+            } else {
+                nav.style.background = 'rgba(10, 37, 64, 0.95)';
+                nav.style.boxShadow = '0 2px 8px rgba(10, 37, 64, 0.08)';
+            }
+        });
+    </script>
+
+</body>
+</html>
